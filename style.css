@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+.main {
+    width: 100%;
+    line-height: 50px;
+    font-size: 3em;
+    text-align: right;
+    padding-right: 5px;
+}
+
+
+.container {
+    width: 100%;
+}
+
+.btn {
+    width: 23%;
+    margin: 1%;
+    font-size: 2em;
+    border-radius: 10px;
+    outline: none;
+    cursor: pointer;
+}
