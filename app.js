@@ -1,8 +1,11 @@
 // Basic Calculator by JavaScript
 const output = document.querySelector('.output')
-const keys = ["*", "/", "+", "-", "9", "8", "7", "6", "5", "4", "3", "2", "1", ".", "0", "="]
-const spec = ["*", "/", "+", "-"]
+const keys = ["*", "/", "+", "-", "9", "8", "7", "6", "5", "4", "3", "2", "1", "0", ".", "=", "C"]
 
+// bellow are placed sepecfiic buttons
+const spec = ["*", "/", "+", "-"]
+let boo = true
+let dec = false
 
 output.style.maxWidth = "300px"
 output.style.margin = "auto"
@@ -40,6 +43,56 @@ function btnMaker(val, parent) {
 
 
 
+// isNaN() is a function which determines whether a value is Nan or not. it returns a boolean.
+
+// eval()=> it evalueates JavaScript code represented as a string eval("2+2")
+
+
+
 function addOutput(val) {
-    main.value += val
+    let boo = true
+    let temp = main.value
+    // Sometimes we need to get the last chatracter
+    // charAt returns a cahracter at a specified index
+    let lastOne = temp.charAt(temp.length - 1)
+
+    if (val === 'C') {
+        main.value = ""
+        boo = false
+    }
+    // if the last char and the one left to the end isNan , then boo must set to be false
+    else if (val === "=") {
+        evalOutput(lastOne)
+        boo = false
+    } else if (val === '.') {
+        if (dec) {
+            boo = false
+        } else {
+            dec = true
+        }
+
+    }
+    if (isNaN(val) && lastOne.length === 0) {
+        boo = false
+    }
+    if (isNaN(val) && isNaN(lastOne)) {
+        boo = false
+    }
+
+    if (boo) {
+
+        main.value += val
+        dec = true
+    }
+
+}
+
+
+function evalOutput(lastOne) {
+
+    if (!isNaN(lastOne)) {
+        main.value = eval(main.value)
+    }
+
+
 }
