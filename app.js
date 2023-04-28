@@ -53,7 +53,7 @@ function addOutput(val) {
     let boo = true
     let temp = main.value
     // Sometimes we need to get the last chatracter
-    // charAt returns a cahracter at a specified index
+    // charAt returns a cahracter at a specified index from a string
     let lastOne = temp.charAt(temp.length - 1)
 
     if (val === 'C') {
@@ -73,6 +73,7 @@ function addOutput(val) {
 
     }
     if (isNaN(val) && lastOne.length === 0) {
+        // I dont want to start with operation
         boo = false
     }
     if (isNaN(val) && isNaN(lastOne)) {
@@ -89,7 +90,8 @@ function addOutput(val) {
 
 
 function evalOutput(lastOne) {
-
+    // if it is true we want to negate the evaluation
+    // if it is false, it will become true nad then or gos to bellow block
     if (!isNaN(lastOne)) {
         main.value = eval(main.value)
     }
