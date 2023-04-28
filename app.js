@@ -57,7 +57,7 @@ function addOutput(val) {
     let lastOne = temp.charAt(temp.length - 1)
 
     if (val === 'C') {
-        main.value = ""
+        main.value = "";
         boo = false
     }
     // if the last char and the one left to the end isNan , then boo must set to be false
@@ -80,7 +80,7 @@ function addOutput(val) {
     }
 
     if (boo) {
-
+        // if boo was true add something to the input screen
         main.value += val
         dec = true
     }
